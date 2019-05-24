@@ -55,6 +55,10 @@ function log() {
   }
 }
 
+app.get('/', function (req, res) {
+  res.send('hello world')
+})
+
 app.post('/disneyheroes', requestVerifier, function(req, res) {
 
   if (req.body.request.type === 'LaunchRequest') {
