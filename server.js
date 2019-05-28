@@ -60,34 +60,34 @@ app.get('/', function (req, res) {
   res.send('hello world')
 })
 
-const LaunchRequestHandler = {
-    canHandle(handlerInput) {
-        return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
-    },
-    handle(handlerInput) {
-        const speechText = 'Welcome to the Alexa Skills Kit, you can say hello!';
-         return handlerInput.responseBuilder
-            .speak(speechText)
-            .reprompt(speechText)
-            .withSimpleCard('Hello World', speechText)
-            .getResponse();
-    }
-};
-
-const HelloWorldIntentHandler = {
-    canHandle(handlerInput) {
-        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-            && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
-    },
-    handle(handlerInput) {
-        const speechText = 'Hello World!';
-        return handlerInput.responseBuilder
-            .speak(speechText)
-            .withSimpleCard('Hello World', speechText)
-            .getResponse();
-    }
-
-}
+// const LaunchRequestHandler = {
+//     canHandle(handlerInput) {
+//         return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
+//     },
+//     handle(handlerInput) {
+//         const speechText = 'Welcome to the Alexa Skills Kit, you can say hello!';
+//          return handlerInput.responseBuilder
+//             .speak(speechText)
+//             .reprompt(speechText)
+//             .withSimpleCard('Hello World', speechText)
+//             .getResponse();
+//     }
+// };
+//
+// const HelloWorldIntentHandler = {
+//     canHandle(handlerInput) {
+//         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+//             && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
+//     },
+//     handle(handlerInput) {
+//         const speechText = 'Hello World!';
+//         return handlerInput.responseBuilder
+//             .speak(speechText)
+//             .withSimpleCard('Hello World', speechText)
+//             .getResponse();
+//     }
+//
+// }
 
 //app.post('/disneyheroes', requestVerifier, function(req, res) {
 
@@ -112,6 +112,13 @@ const HelloWorldIntentHandler = {
 //     }
 //   }
 // });
+app.post('/HelloWorldIntent', requestVerifier, function(req, res) {
+
+  if (req.body.request.type === 'LaunchRequest') {
+    res.json(gethello());}
+
+  });
+
 
 function handleDataMissing() {
   return buildResponse(MISSING_DETAILS, true, null)
@@ -131,6 +138,10 @@ function help() {
   var jsonObj = buildResponseWithRepromt(speechOutput, false, "", reprompt);
 
   return jsonObj;
+}
+function gethello(){
+    var welcomeSpeechOutput = 'Hello World! Welcome to Fero.Ai<break time="0.3s" />'
+    return buildResponseWithRepromt(speechOutput);
 }
 
 function getNewHero() {
