@@ -75,7 +75,6 @@ const LaunchRequestHandler = {
 };
 
 const HelloWorldIntentHandler = {
-  console.log("Are u in helo wrld intent")
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
             && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
@@ -88,7 +87,7 @@ const HelloWorldIntentHandler = {
             .getResponse();
     }
 
-
+}
 
 //app.post('/disneyheroes', requestVerifier, function(req, res) {
 
