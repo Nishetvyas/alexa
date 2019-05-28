@@ -141,7 +141,7 @@ function help() {
 }
 function gethello(){
     var welcomeSpeechOutput = 'Hello World! Welcome to Fero.Ai'
-    var jsonObj = return buildResponseWithRepromt(welcomespeechOutput,false,"",reprompt);
+    var jsonObj = buildResponseWithRepromt(welcomespeechOutput,false,"",reprompt);
     return jsonObj;
 }
 
