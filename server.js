@@ -113,10 +113,8 @@ app.get('/', function (req, res) {
 //   }
 // });
 app.post('/HelloWorldIntent', requestVerifier, function(req, res) {
-
-  if (req.body.request.type === 'LaunchRequest') {
-    res.json(gethello());}
-
+    console.log("are u in heelo intent")
+    res.json(gethello());
   });
 
 
