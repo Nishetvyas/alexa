@@ -89,32 +89,34 @@ app.get('/', function (req, res) {
 //
 // }
 
-//app.post('/disneyheroes', requestVerifier, function(req, res) {
+app.post('/disneyheroes', requestVerifier, function(req, res) {
 
-//   if (req.body.request.type === 'LaunchRequest') {
-//     res.json(getNewHero());
-//     isFisrtTime = false
-//   } else if (req.body.request.type === 'SessionEndedRequest') { /* ... */
-//     log("Session End")
-//   } else if (req.body.request.type === 'IntentRequest') {
-//     switch (req.body.request.intent.name) {
-//       case 'AMAZON.YesIntent':
-//         res.json(getNewHero());
-//         break;
-//       case 'AMAZON.NoIntent':
-//         res.json(stopAndExit());
-//         break;
-//       case 'AMAZON.HelpIntent':
-//         res.json(help());
-//         break;
-//       default:
-//
-//     }
-//   }
-// });
+  if (req.body.request.type === 'LaunchRequest') {
+    res.json(getNewHero());
+    isFisrtTime = false
+  } else if (req.body.request.type === 'SessionEndedRequest') { /* ... */
+    log("Session End")
+  } else if (req.body.request.type === 'IntentRequest') {
+    switch (req.body.request.intent.name) {
+      case 'AMAZON.YesIntent':
+        res.json(getNewHero());
+        break;
+      case 'AMAZON.NoIntent':
+        res.json(stopAndExit());
+        break;
+      case 'AMAZON.HelpIntent':
+        res.json(help());
+        break;
+      default:
+
+    }
+  }
+});
 app.post('/HelloWorldIntent', requestVerifier, function(req, res) {
+    if (req.body.request.type === 'LaunchRequest') {
     console.log("are u in heelo intent")
-    res.json(gethello());
+    res.json(get1hello());
+  }
   });
 
 
