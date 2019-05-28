@@ -139,7 +139,7 @@ function help() {
 }
 function gethello(){
     var welcomeSpeechOutput = 'Hello World! Welcome to Fero.Ai<break time="0.3s" />'
-    return buildResponseWithRepromt(speechOutput);
+    return buildResponseWithRepromt(welcomespeechOutput);
 }
 
 function getNewHero() {
