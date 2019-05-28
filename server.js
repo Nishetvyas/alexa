@@ -5,13 +5,13 @@ let express = require('express'),
 let alexaVerifier = require('alexa-verifier');
 var isFisrtTime = true;
 const SKILL_NAME = 'Disney Heroes';
-const GET_HERO_MESSAGE = "Here's your hero: ";
-const HELP_MESSAGE = 'You can say please fetch me a hero, or, you can say exit... What can I help you with?';
-const HELP_REPROMPT = 'What can I help you with?';
-const STOP_MESSAGE = 'Enjoy the day...Goodbye!';
-const MORE_MESSAGE = 'Do you want more?'
-const PAUSE = '<break time="0.3s" />'
-const WHISPER = '<amazon:effect name="whispered"/>'
+// const GET_HERO_MESSAGE = "Here's your hero: ";
+// const HELP_MESSAGE = 'You can say please fetch me a hero, or, you can say exit... What can I help you with?';
+// const HELP_REPROMPT = 'What can I help you with?';
+// const STOP_MESSAGE = 'Enjoy the day...Goodbye!';
+// const MORE_MESSAGE = 'Do you want more?'
+// const PAUSE = '<break time="0.3s" />'
+// const WHISPER = '<amazon:effect name="whispered"/>'
 
 // const data = [
 //   'Aladdin  ',
@@ -120,30 +120,30 @@ app.post('/HelloWorldIntent', requestVerifier, function(req, res) {
   });
 
 
-function handleDataMissing() {
-  return buildResponse(MISSING_DETAILS, true, null)
-}
-
-function stopAndExit() {
-
-  const speechOutput = STOP_MESSAGE
-  var jsonObj = buildResponse(speechOutput, true, "");
-  return jsonObj;
-}
-
-function help() {
-
-  const speechOutput = HELP_MESSAGE
-  const reprompt = HELP_REPROMPT
-  var jsonObj = buildResponseWithRepromt(speechOutput, false, "", reprompt);
-
-  return jsonObj;
-}
-function gethello(){
-    var welcomeSpeechOutput = 'Hello World! Welcome to Fero.Ai test app.'
-    var jsonObj = buildResponseWithRepromt(welcomespeechOutput,false,"",reprompt);
-    return jsonObj;
-}
+// function handleDataMissing() {
+//   return buildResponse(MISSING_DETAILS, true, null)
+// }
+//
+// function stopAndExit() {
+//
+//   const speechOutput = STOP_MESSAGE
+//   var jsonObj = buildResponse(speechOutput, true, "");
+//   return jsonObj;
+// }
+//
+// function help() {
+//
+//   const speechOutput = HELP_MESSAGE
+//   const reprompt = HELP_REPROMPT
+//   var jsonObj = buildResponseWithRepromt(speechOutput, false, "", reprompt);
+//
+//   return jsonObj;
+// }
+// function gethello(){
+//     var welcomeSpeechOutput = 'Hello World! Welcome to Fero.Ai test app.'
+//     var jsonObj = buildResponseWithRepromt(welcomespeechOutput,false,"",reprompt);
+//     return jsonObj;
+// }
 
 // function getNewHero() {
 //
@@ -164,27 +164,27 @@ function gethello(){
 //
 // }
 
-function buildResponse(speechText, shouldEndSession, cardText) {
-
-  const speechOutput = "<speak>" + speechText + "</speak>"
-  var jsonObj = {
-    "version": "1.0",
-    "response": {
-      "shouldEndSession": shouldEndSession,
-      "outputSpeech": {
-        "type": "SSML",
-        "ssml": speechOutput
-      }
-    },
-    "card": {
-      "type": "Simple",
-      "title": SKILL_NAME,
-      "content": cardText,
-      "text": cardText
-    },
-  }
-  return jsonObj
-}
+// function buildResponse(speechText, shouldEndSession, cardText) {
+//
+//   const speechOutput = "<speak>" + speechText + "</speak>"
+//   var jsonObj = {
+//     "version": "1.0",
+//     "response": {
+//       "shouldEndSession": shouldEndSession,
+//       "outputSpeech": {
+//         "type": "SSML",
+//         "ssml": speechOutput
+//       }
+//     },
+//     "card": {
+//       "type": "Simple",
+//       "title": SKILL_NAME,
+//       "content": cardText,
+//       "text": cardText
+//     },
+//   }
+//   return jsonObj
+// }
 
 function buildResponseWithRepromt(speechText, shouldEndSession, cardText, reprompt) {
 
