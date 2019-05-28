@@ -1,0 +1,10 @@
+https://www.codecademy.com/learn/learn-alexa
+
+understand customSkill -> https://developer.amazon.com/docs/custom-skills/understanding-custom-skills.html
+understand how users interact with skill -> https://developer.amazon.com/docs/ask-overviews/understanding-how-users-interact-with-skills.html
+
+Alexa skill kitfor node.js -> https://ask-sdk-for-nodejs.readthedocs.io/en/latest/
+
+https://developer.amazon.com/docs/smapi/interaction-model-schema.html
+
+https://medium.com/screenmedia-lab/utterances-slots-and-skills-the-new-vocabulary-needed-to-develop-for-voice-7428bff4ed79

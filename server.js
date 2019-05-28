@@ -4,7 +4,7 @@ let express = require('express'),
   app = express();
 let alexaVerifier = require('alexa-verifier');
 var isFisrtTime = true;
-const SKILL_NAME = 'Disney Heroes';
+const SKILL_NAME = 'Disney';
 const GET_HERO_MESSAGE = "Here's your hero: ";
 const HELP_MESSAGE = 'You can say please fetch me a hero, or, you can say exit... What can I help you with?';
 const HELP_REPROMPT = 'What can I help you with?';
@@ -55,9 +55,41 @@ function log() {
   }
 }
 
+//for check api run or not.
 app.get('/', function (req, res) {
   res.send('hello world')
 })
+
+const LaunchRequestHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
+    },
+    handle(handlerInput) {
+        const speechText = 'Welcome to the Alexa Skills Kit, you can say hello!';
+return handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt(speechText)
+            .withSimpleCard('Hello World', speechText)
+            .getResponse();
+    }
+};
+
+const HelloWorldIntentHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
+    },
+    handle(handlerInput) {
+        const speechText = 'Hello World!';
+return handlerInput.responseBuilder
+            .speak(speechText)
+            .withSimpleCard('Hello World', speechText)
+            .getResponse();
+    }
+};
+
+
+
 
 app.post('/disneyheroes', requestVerifier, function(req, res) {
 

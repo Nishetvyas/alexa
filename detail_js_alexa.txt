@@ -1,0 +1,4 @@
+1. Canhandler -> Its use to check right handler for the incoming requests.
+if its return true then we use the handle method.
+
+2. response Builder:- That speechout something and it can be text and audio.it can be send other thing like multimodel template and or a card and etc.
