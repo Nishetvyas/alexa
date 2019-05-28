@@ -74,20 +74,25 @@ return handlerInput.responseBuilder
     }
 };
 
-const HelloWorldIntentHandler = {
-    canHandle(handlerInput) {
-        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-            && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
-    },
-    handle(handlerInput) {
-        const speechText = 'Hello World!';
-return handlerInput.responseBuilder
-            .speak(speechText)
-            .withSimpleCard('Hello World', speechText)
-            .getResponse();
-    }
-};
 
+
+app.post('/HelloWorldIntent', requestVerifier, function(req, res) {
+  console.log("are u in hello intent")
+
+  const HelloWorldIntentHandler = {
+      canHandle(handlerInput) {
+          return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+              && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
+      },
+      handle(handlerInput) {
+          const speechText = 'Hello World!';
+          return handlerInput.responseBuilder
+              .speak(speechText)
+              .withSimpleCard('Hello World', speechText)
+              .getResponse();
+      }
+  };
+});
 
 
 
