@@ -4,7 +4,7 @@ let express = require('express'),
   app = express();
 let alexaVerifier = require('alexa-verifier');
 var isFisrtTime = true;
-const SKILL_NAME = 'disney';
+const SKILL_NAME = 'Disney Heroes';
 const GET_HERO_MESSAGE = "Here's your hero: ";
 const HELP_MESSAGE = 'You can say please fetch me a hero, or, you can say exit... What can I help you with?';
 const HELP_REPROMPT = 'What can I help you with?';
@@ -17,7 +17,7 @@ const data = [
   'Aladdin  ',
   'Cindrella ',
   'Bambi',
-  'Bella ',
+  'Bella',
   'Bolt ',
   'Donald Duck',
   'Genie ',
