@@ -13,17 +13,17 @@ const MORE_MESSAGE = 'Do you want more?'
 const PAUSE = '<break time="0.3s" />'
 const WHISPER = '<amazon:effect name="whispered"/>'
 
-const data = [
-  'Aladdin  ',
-  'Cindrella ',
-  'Bambi',
-  'Bella',
-  'Bolt ',
-  'Donald Duck',
-  'Genie ',
-  'Goofy',
-  'Mickey Mouse',
-];
+// const data = [
+//   'Aladdin  ',
+//   'Cindrella ',
+//   'Bambi',
+//   'Bella',
+//   'Bolt ',
+//   'Donald Duck',
+//   'Genie ',
+//   'Goofy',
+//   'Mickey Mouse',
+// ];
 
 app.use(bodyParser.json({
   verify: function getRawBody(req, res, buf) {
@@ -145,24 +145,24 @@ function gethello(){
     return jsonObj;
 }
 
-function getNewHero() {
-
-  var welcomeSpeechOutput = 'Welcome to Disney heroes<break time="0.3s" />'
-  if (!isFisrtTime) {
-    welcomeSpeechOutput = '';
-  }
-
-  const heroArr = data;
-  const heroIndex = Math.floor(Math.random() * heroArr.length);
-  const randomHero = heroArr[heroIndex];
-  const tempOutput = WHISPER + GET_HERO_MESSAGE + randomHero + PAUSE;
-  const speechOutput = welcomeSpeechOutput + tempOutput + MORE_MESSAGE
-  const more = MORE_MESSAGE
-
-
-  return buildResponseWithRepromt(speechOutput, false, randomHero, more);
-
-}
+// function getNewHero() {
+//
+//   var welcomeSpeechOutput = 'Welcome to Disney heroes<break time="0.3s" />'
+//   if (!isFisrtTime) {
+//     welcomeSpeechOutput = '';
+//   }
+//
+//   const heroArr = data;
+//   const heroIndex = Math.floor(Math.random() * heroArr.length);
+//   const randomHero = heroArr[heroIndex];
+//   const tempOutput = WHISPER + GET_HERO_MESSAGE + randomHero + PAUSE;
+//   const speechOutput = welcomeSpeechOutput + tempOutput + MORE_MESSAGE
+//   const more = MORE_MESSAGE
+//
+//
+//   return buildResponseWithRepromt(speechOutput, false, randomHero, more);
+//
+// }
 
 function buildResponse(speechText, shouldEndSession, cardText) {
 
